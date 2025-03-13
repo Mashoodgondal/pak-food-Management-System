@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 const items = [
@@ -117,7 +118,7 @@ const HomePage = () => {
             </div>
 
             {/* Selected Items */}
-            <div className="w-full md:w-1/2 p-5 bg-white shadow-lg rounded-lg">
+            <div className="w-full md:w-1/2 h-[490px] p-5 bg-white shadow-lg overflow-auto rounded-lg">
                 <h2 className="text-xl text-center text-indigo-600 font-bold mb-4">Selected Items</h2>
                 <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
                     <thead>
@@ -148,10 +149,13 @@ const HomePage = () => {
                 </table>
 
                 <div className="mt-3 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-5">
+                    <Link href="/calculator"><button className="bg-green-300 p-2 text-xs sm:text-sm hover:bg-green-400 rounded-lg text-yellow-700 border border-green-500">Calculator</button></Link>
                     <button className="bg-gray-600 p-2 text-xs sm:text-sm hover:bg-gray-500 rounded-lg text-yellow-500 border border-yellow-400" onClick={handleCancelAll}>Cancel All</button>
-                    <div className="text-yellow-600 font-bold text-lg">Total: Rs. {total}</div>
                     <button onClick={handlePrintVoucher} className="bg-blue-500 text-white px-4 py-2 text-xs sm:text-sm rounded hover:bg-blue-600">Print Voucher</button>
+                    <div className="text-yellow-600 font-bold text-lg">Total: Rs. {total}</div>
+
                 </div>
+
             </div>
         </div>
     );
