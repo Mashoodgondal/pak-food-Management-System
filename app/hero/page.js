@@ -38,7 +38,7 @@ const HomePage = () => {
 
         let voucherContent = `
             <div style="font-family: monospace; text-align: center; padding: 10px; width: 280px;">
-                <h2 style="margin: 0;">Pak-Food Ice Cream & Fish Point</h2>
+                <h2 style="margin: 0;">Pak Dairy Ice Cream & Fish Point</h2>
                 <hr style="border: 1px dashed black;">
                 <table style="width: 100%; text-align: left; font-size: 14px;">
                     <tr>
