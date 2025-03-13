@@ -1,0 +1,160 @@
+
+"use client";
+import { useState } from "react";
+
+const items = [
+    { name: "Vanilla", prices: { small: 50, medium: 100, large: 150 } },
+    { name: "Chocolate", prices: { small: 60, medium: 120, large: 180 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
+    { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+];
+
+const HomePage = () => {
+    const [selectedItems, setSelectedItems] = useState([]);
+
+    const handleClick = (item, size) => {
+        const price = item.prices[size];
+        setSelectedItems([...selectedItems, { ...item, size, price }]);
+    };
+
+    const handleCancel = (index) => {
+        setSelectedItems(selectedItems.filter((_, i) => i !== index));
+    };
+
+    const handleCancelAll = () => {
+        setSelectedItems([]);
+    };
+
+    const handlePrintVoucher = () => {
+        if (selectedItems.length === 0) {
+            alert("No items selected!");
+            return;
+        }
+
+        let voucherContent = `
+            <div style="font-family: monospace; text-align: center; padding: 10px; width: 280px;">
+                <h2 style="margin: 0;">Pak-Food Ice Cream & Fish Point</h2>
+                <hr style="border: 1px dashed black;">
+                <table style="width: 100%; text-align: left; font-size: 14px;">
+                    <tr>
+                        <th style="text-align: left;">Item</th>
+                        <th style="text-align: center;">Size</th>
+                        <th style="text-align: right;">Price</th>
+                    </tr>
+        `;
+
+        selectedItems.forEach(item => {
+            voucherContent += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td style="text-align: center;">${item.size}</td>
+                    <td style="text-align: right;">Rs. ${item.price}</td>
+                </tr>
+            `;
+        });
+
+        const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+        voucherContent += `
+                </table>
+                <hr style="border: 1px dashed black;">
+                <h3 style="text-align: right;">Total: Rs. ${total}</h3>
+                <hr style="border: 1px dashed black;">
+                <p>Thank you for your purchase!</p>
+            </div>
+        `;
+
+        const printWindow = window.open("", "_blank", "width=300,height=600");
+        printWindow.document.write("<html><head><title>Receipt</title></head><body>");
+        printWindow.document.write(voucherContent);
+        printWindow.document.write("</body></html>");
+        printWindow.document.close();
+
+        printWindow.onload = () => {
+            printWindow.print();
+            printWindow.close();
+        };
+    };
+
+    const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+
+    return (
+        <div className="flex flex-col md:flex-row min-h-screen p-5 bg-gray-100 gap-5">
+
+            {/* Ice Cream Menu */}
+            <div className="w-full md:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-3 p-3 bg-white shadow-lg rounded-lg">
+                {items.map((item, index) => (
+                    <div
+                        key={index}
+                        className="p-3 bg-yellow-200 rounded-xl shadow-lg border border-gray-500 flex flex-col items-center justify-center space-y-2 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                        <h3 className="text-lg font-semibold text-orange-600">{item.name}</h3>
+                        <div className="flex sm:flex-col md:flex-row space-x-1">
+                            <button
+                                onClick={() => handleClick(item, "small")}
+                                className="bg-green-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-green-600 hover:scale-110"
+                            >
+                                Small
+                            </button>
+                            <button
+                                onClick={() => handleClick(item, "medium")}
+                                className="bg-blue-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-blue-600 hover:scale-110"
+                            >
+                                Medium
+                            </button>
+                            <button
+                                onClick={() => handleClick(item, "large")}
+                                className="bg-red-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-red-600 hover:scale-110"
+                            >
+                                Large
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Selected Items */}
+            <div className="w-full md:w-1/2 p-5 bg-white shadow-lg rounded-lg">
+                <h2 className="text-xl text-center text-indigo-600 font-bold mb-4">Selected Items</h2>
+                <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
+                    <thead>
+                        <tr className="bg-gray-300">
+                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Item Name</th>
+                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Size</th>
+                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Price</th>
+                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {selectedItems.map((item, index) => (
+                            <tr key={index}>
+                                <td className="border text-gray-600 font-bold border-gray-400 p-2">{item.name}</td>
+                                <td className="border text-gray-600 border-gray-400 p-2">{item.size}</td>
+                                <td className="border text-gray-600 border-gray-400 p-2">Rs. {item.price}</td>
+                                <td className="border text-gray-600 border-gray-400 p-2 text-center">
+                                    <button
+                                        onClick={() => handleCancel(index)}
+                                        className="bg-red-400 text-white px-2 py-1 text-xs sm:text-sm rounded hover:bg-red-500"
+                                    >
+                                        Cancel
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+                <div className="mt-3 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-5">
+                    <button className="bg-gray-600 p-2 text-xs sm:text-sm hover:bg-gray-500 rounded-lg text-yellow-500 border border-yellow-400" onClick={handleCancelAll}>Cancel All</button>
+                    <div className="text-yellow-600 font-bold text-lg">Total: Rs. {total}</div>
+                    <button onClick={handlePrintVoucher} className="bg-blue-500 text-white px-4 py-2 text-xs sm:text-sm rounded hover:bg-blue-600">Print Voucher</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default HomePage;
