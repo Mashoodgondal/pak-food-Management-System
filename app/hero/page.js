@@ -12,6 +12,32 @@ const items = [
     { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
     { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
     { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+    { name: "Vanilla", prices: { small: 50, medium: 100, large: 150 } },
+    { name: "Chocolate", prices: { small: 60, medium: 120, large: 180 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
+    { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
+    { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
+    { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
+    { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
 ];
 
 const HomePage = () => {
@@ -83,14 +109,14 @@ const HomePage = () => {
     const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
 
     return (
-        <div className="flex flex-col md:flex-row min-h-screen p-5 bg-gray-100 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2  p-5 bg-gray-100 gap-3">
 
-            {/* Ice Cream Menu */}
-            <div className="w-full md:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-3 p-3 bg-white shadow-lg rounded-lg">
+
+            <div className=" h-[500px] grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-3 p-3 bg-white shadow-lg rounded-lg overflow-scroll">
                 {items.map((item, index) => (
                     <div
                         key={index}
-                        className="p-3 bg-yellow-200 rounded-xl shadow-lg border border-gray-500 flex flex-col items-center justify-center space-y-2 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                        className="h-20 w-30 p-3 bg-yellow-200 rounded-xl shadow-lg border border-gray-500 flex flex-col items-center justify-center space-y-1 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                     >
                         <h3 className="text-lg font-semibold text-orange-600">{item.name}</h3>
                         <div className="flex sm:flex-col md:flex-row space-x-1">
@@ -98,19 +124,19 @@ const HomePage = () => {
                                 onClick={() => handleClick(item, "small")}
                                 className="bg-green-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-green-600 hover:scale-110"
                             >
-                                Small
+                                S
                             </button>
                             <button
                                 onClick={() => handleClick(item, "medium")}
                                 className="bg-blue-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-blue-600 hover:scale-110"
                             >
-                                Medium
+                                M
                             </button>
                             <button
                                 onClick={() => handleClick(item, "large")}
                                 className="bg-red-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-red-600 hover:scale-110"
                             >
-                                Large
+                                L
                             </button>
                         </div>
                     </div>
@@ -118,36 +144,39 @@ const HomePage = () => {
             </div>
 
             {/* Selected Items */}
-            <div className="w-full md:w-1/2 h-[490px] p-5 bg-white shadow-lg overflow-auto rounded-lg">
-                <h2 className="text-xl text-center text-indigo-600 font-bold mb-4">Selected Items</h2>
-                <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
-                    <thead>
-                        <tr className="bg-gray-300">
-                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Item Name</th>
-                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Size</th>
-                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Price</th>
-                            <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {selectedItems.map((item, index) => (
-                            <tr key={index}>
-                                <td className="border text-gray-600 font-bold border-gray-400 p-2">{item.name}</td>
-                                <td className="border text-gray-600 border-gray-400 p-2">{item.size}</td>
-                                <td className="border text-gray-600 border-gray-400 p-2">Rs. {item.price}</td>
-                                <td className="border text-gray-600 border-gray-400 p-2 text-center">
-                                    <button
-                                        onClick={() => handleCancel(index)}
-                                        className="bg-red-400 text-white px-2 py-1 text-xs sm:text-sm rounded hover:bg-red-500"
-                                    >
-                                        Cancel
-                                    </button>
-                                </td>
+            <div className="  p-5 bg-white shadow-lg rounded-lg" >
+                <div className=" h-[290px] p-5 bg-white shadow-lg overflow-auto ">
+                    <h2 className="text-xl text-center text-indigo-600 font-bold mb-4">Selected Items</h2>
+                    <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
+                        <thead>
+                            <tr className="bg-gray-300">
+                                <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Item Name</th>
+                                <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Size</th>
+                                <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Price</th>
+                                <th className="border bg-yellow-500 text-gray-600 font-bold border-gray-400 p-2">Action</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {selectedItems.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="border text-gray-600 font-bold border-gray-400 p-2">{item.name}</td>
+                                    <td className="border text-gray-600 border-gray-400 p-2">{item.size}</td>
+                                    <td className="border text-gray-600 border-gray-400 p-2">Rs. {item.price}</td>
+                                    <td className="border text-gray-600 border-gray-400 p-2 text-center">
+                                        <button
+                                            onClick={() => handleCancel(index)}
+                                            className="bg-red-400 text-white px-2 py-1 text-xs sm:text-sm rounded hover:bg-red-500"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
 
+
+                </div>
                 <div className="mt-3 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-5">
                     <Link href="/calculator"><button className="bg-green-300 p-2 text-xs sm:text-sm hover:bg-green-400 rounded-lg text-yellow-700 border border-green-500">Calculator</button></Link>
                     <button className="bg-gray-600 p-2 text-xs sm:text-sm hover:bg-gray-500 rounded-lg text-yellow-500 border border-yellow-400" onClick={handleCancelAll}>Cancel All</button>
