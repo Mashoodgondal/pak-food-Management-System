@@ -38,6 +38,7 @@ const items = [
     { name: "Blueberry", prices: { small: 70, medium: 140, large: 210 } },
     { name: "Cookie Dough", prices: { small: 80, medium: 160, large: 240 } },
     { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
+    { name: "Caramel", prices: { small: 85, medium: 170, large: 255 } },
 ];
 
 const HomePage = () => {
