@@ -17,6 +17,10 @@ const items = [
     { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
     { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
     { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "saus", prices: { small: 30, medium: 60, large: 100 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
 
 
 ];
