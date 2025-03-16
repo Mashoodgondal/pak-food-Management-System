@@ -6,8 +6,7 @@ const HeaderPage = () => {
         >
 
             <h1 className="text-2xl sm:text-4xl lg:text-3xl font-extrabold text-black drop-shadow-md">
-                Pak <span className="text-black">Foods</span> Ice Cream &
-                <span className="text-black"> Fish</span> Point
+                Pak Dairy Ice Cream & Fish
             </h1>
         </header>
     );

@@ -136,7 +136,7 @@ const HomePage = () => {
                 ))}
             </div>
 
-            {/* Selected Items */}
+
             <div className="  p-5 bg-white shadow-lg rounded-lg" >
                 <div className=" h-[290px] p-5 bg-white shadow-lg overflow-auto ">
                     <h2 className="text-xl text-center text-indigo-600 font-bold mb-4">Selected Items</h2>
