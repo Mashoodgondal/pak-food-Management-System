@@ -14,13 +14,7 @@ const items = [
     { name: "Drinks", prices: { small: 85, medium: 170, large: 255 } },
     { name: "NaN", prices: 60 },
     { name: "saus", prices: { small: 30, medium: 60, large: 100 } },
-    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
-    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
-    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
-    { name: "saus", prices: { small: 30, medium: 60, large: 100 } },
-    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
-    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
-    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
+
 
 
 ];
@@ -32,6 +26,19 @@ const HomePage = () => {
         const price = item.prices[size];
         setSelectedItems([...selectedItems, { ...item, size, price }]);
     };
+    // const handleClick = (item, size = null) => {
+    //     let price;
+    //     if (typeof item.prices === 'object') {
+    //         // For items with sizes
+    //         price = item.prices[size];
+    //     } else {
+    //         // For fixed-price items like "NaN"
+    //         price = item.prices;
+    //     }
+
+    //     setSelectedItems([...selectedItems, { ...item, size: size || '-', price }]);
+    // };
+
 
     const handleCancel = (index) => {
         setSelectedItems(selectedItems.filter((_, i) => i !== index));
@@ -92,6 +99,8 @@ const HomePage = () => {
     };
 
     const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+    // const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2  p-5 bg-gray-100 gap-3">
@@ -126,6 +135,38 @@ const HomePage = () => {
                         </div>
                     </div>
                 ))}
+                {/* {typeof items.prices === 'object' ? (
+                    // If item has sizes
+                    <div className="flex sm:flex-col md:flex-row space-x-1">
+                        <button
+                            onClick={() => handleClick(item, "small")}
+                            className="bg-green-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-green-600 hover:scale-110"
+                        >
+                            S
+                        </button>
+                        <button
+                            onClick={() => handleClick(item, "medium")}
+                            className="bg-blue-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-blue-600 hover:scale-110"
+                        >
+                            M
+                        </button>
+                        <button
+                            onClick={() => handleClick(item, "large")}
+                            className="bg-red-500 text-white px-1 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-red-600 hover:scale-110"
+                        >
+                            L
+                        </button>
+                    </div>
+                ) : (
+                    // For fixed price item
+                    <button
+                        onClick={() => handleClick(item)}
+                        className="bg-purple-500 text-white px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 hover:bg-purple-600 hover:scale-110"
+                    >
+                        Add Rs. {items.prices}
+                    </button>
+                )} */}
+
             </div>
 
 
