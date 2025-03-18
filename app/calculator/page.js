@@ -57,3 +57,9 @@ const Calculator = () => {
 };
 
 export default Calculator;
+{/* <button
+                    onClick={() => router.push("/")}
+                    className="mt-5 w-full text-center text-gray-300 font-semibold bg-indigo-600 bg-opacity-40 py-3 rounded-lg hover:bg-opacity-60 transition"
+                >
+                    Go to Home
+                </button> */}
