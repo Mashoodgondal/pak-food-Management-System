@@ -11,15 +11,7 @@ const items = [
     { name: "Pistachio", prices: { small: 75, medium: 150, large: 225, xl: 250 } },
     { name: "Rabri", prices: { small: 150, medium: 150, large: 150 } },
     { name: "Bryani", prices: { small: 150, medium: 200, large: 250 } },
-    { name: "Vanilla Shake", type: "shake", prices: { regular: 180, large: 220 } },
-    { name: "Chocolate Shake", type: "shake", prices: { regular: 180, large: 220 } },
-    { name: "Strawberry Shake", type: "shake", prices: { regular: 180, large: 220 } },
-    { name: "Mango Shake", type: "shake", prices: { regular: 180, large: 220 } },
-    { name: "Oreo Shake", type: "shake", prices: { regular: 200, large: 250 } },
-    { name: "KitKat Shake", type: "shake", prices: { regular: 200, large: 250 } },
-    { name: "Pistachio Shake", type: "shake", prices: { regular: 200, large: 250 } },
-    { name: "Nutella Shake", type: "shake", prices: { regular: 220, large: 270 } },
-    { name: "Coffee Shake", type: "shake", prices: { regular: 200, large: 250 } },
+
     { name: "Rabri Shake", type: "shake", prices: { regular: 250, large: 300 } },
 ];
 
