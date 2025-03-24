@@ -4,19 +4,23 @@ import Link from "next/link";
 import { useState } from "react";
 
 const items = [
-    { name: "Vanilla", prices: { small: 50, medium: 100, large: 150 } },
-    { name: "Chocolate", prices: { small: 60, medium: 120, large: 180 } },
-    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165 } },
-    { name: "Mango", prices: { small: 65, medium: 130, large: 195 } },
-    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225 } },
-    { name: "Rabri", prices: { small: 70, medium: 140, large: 210 } },
+    { name: "Vanilla", prices: { small: 100, medium: 150, large: 200, xl: 250 } },
+    { name: "Chocolate", prices: { small: 60, medium: 120, large: 180, xl: 250 } },
+    { name: "Strawberry", prices: { small: 55, medium: 110, large: 165, xl: 250 } },
+    { name: "Mango", prices: { small: 65, medium: 130, large: 195, xl: 250 } },
+    { name: "Pistachio", prices: { small: 75, medium: 150, large: 225, xl: 250 } },
+    { name: "Rabri", prices: { small: 150, medium: 150, large: 150 } },
     { name: "Bryani", prices: { small: 150, medium: 200, large: 250 } },
-    { name: "Drinks", prices: { small: 85, medium: 170, large: 255 } },
-    { name: "NaN", prices: 60 },
-    { name: "saus", prices: { small: 30, medium: 60, large: 100 } },
-
-
-
+    { name: "Vanilla Shake", type: "shake", prices: { regular: 180, large: 220 } },
+    { name: "Chocolate Shake", type: "shake", prices: { regular: 180, large: 220 } },
+    { name: "Strawberry Shake", type: "shake", prices: { regular: 180, large: 220 } },
+    { name: "Mango Shake", type: "shake", prices: { regular: 180, large: 220 } },
+    { name: "Oreo Shake", type: "shake", prices: { regular: 200, large: 250 } },
+    { name: "KitKat Shake", type: "shake", prices: { regular: 200, large: 250 } },
+    { name: "Pistachio Shake", type: "shake", prices: { regular: 200, large: 250 } },
+    { name: "Nutella Shake", type: "shake", prices: { regular: 220, large: 270 } },
+    { name: "Coffee Shake", type: "shake", prices: { regular: 200, large: 250 } },
+    { name: "Rabri Shake", type: "shake", prices: { regular: 250, large: 300 } },
 ];
 
 const HomePage = () => {
